@@ -1,0 +1,28 @@
+﻿<ion-view view-title="Login" name="login-view">
+    <ion-content class="ion-contentColor">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Username" ng-model="data.username">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="data.password">
+            </label>
+        </div>
+        <div class="row">
+            <button class="button button-block button-positive">Login <i class="ion-log-in"></i></button>
+        </div>
+        <div class="row">
+           
+            <div class="col col-offset-25 col-50">
+                <a class="button button-small button-full button-custom" ui-sref="registration">Create New Account</a>
+            </div>
+            
+           
+        </div>
+        <div class="row">
+            <div class="col col-offset-25 col-50 text-center">
+               <a ui-sref="forgotPassword">Forgotten Password?</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
