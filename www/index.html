@@ -57,33 +57,81 @@
                   <h1 class="title">Welcome To TrustApp</h1>
               </ion-header-bar>
               <ion-content >
-                  <div class="item-avatar-left" style="background-color:black">
+                  <!--<div class="item-avatar-left" style="background-color:black">
                       <img src="img/1272.jpg" />
                       <div class="row"  style="padding-top:8%">
                          <h5 style="color:white;">Hello Sachin!</h5> 
                       </div>
-                  </div>
-                  <div class="list">
+                  </div>-->
+                
+                      <div class="row" style="background-color:black">
+                          <div class="col-offset-20">
+                              <div class="row profile-picture-div" style="width: 174px">
+                                  <div class="col col-offset-20 col-50 item-body">
+                                      <img id="camera" class="full-image profile-picture" src="img/1272.jpg">
+                                    
+                                  </div>
+                                 
+                              </div>
+                              <p style="color:white; text-align:center;">Hello Sachin!</p>
+                          </div>
 
-                      <a class="item item-icon-left item-borderless" menu-close ui-sref="dashboard">
-                          <i class="icon ion-paper-airplane"></i>
-                         Top Blogs
-                      </a>
-                      <a class="item item-icon-left item-borderless" menu-close href="#">
-                          <i class="icon ion-laptop"></i>
-                          Technology
-                      </a>
-                      <a class="item item-icon-left item-borderless" menu-close href="#">
-                          <i class="icon ion-wand"></i>
-                          Innovation
-                      </a>
-                      <a class="item item-icon-left item-borderless" menu-close href="#">
-                          <i class="icon ion-email"></i>
-                          Fashion
-                      </a>
-                      <a class="item item-icon-left " ui-sref="addblog" menu-close>
-                          <i class="icon ion-social-rss"></i>
-                          Add Blog
+                      </div>
+                      <!--<h5 style="color:white; text-align:center ;padding:0px 0px 12px 0px">
+
+                          Hello Sachin!
+
+
+                      </h5>-->
+                  
+                 
+                  <ion-scroll scroll="true" direction="y" style="height:300px">
+                      <div class="list">
+
+                          <a class="item item-icon-left item-borderless" menu-close ui-sref="dashboard">
+                              <i class="icon ion-paper-airplane"></i>
+                              Old Activities
+                          </a>
+                          <a class="item item-icon-left item-borderless" menu-close href="#">
+                              <i class="icon ion-laptop"></i>
+                              Current Activities
+                          </a>
+                          <a class="item item-icon-left item-borderless" menu-close href="#">
+                              <i class="icon ion-wand"></i>
+                              Invitation
+                          </a>
+                          <a class="item item-icon-left item-borderless" menu-close href="#">
+                              <i class="icon ion-email"></i>
+                              Talent Club
+                          </a>
+                          <a class="item item-icon-left  item-borderless " ui-sref="addblog" menu-close>
+                              <i class="icon ion-social-rss"></i>
+                              New Creation
+                          </a>
+                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
+                              <i class="icon ion-log-in"></i>
+                              Blood Union
+                          </a>
+                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
+                              <i class="icon ion-log-in"></i>
+                              Natural Healthy tips
+                          </a>
+                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
+                              <i class="icon ion-log-in"></i>
+                              Helping News
+                          </a>
+                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
+                              <i class="icon ion-log-in"></i>
+                              Others
+                          </a>
+
+
+                      </div>
+                  </ion-scroll>
+                  <div class="list">
+                      <a class="item item-icon-left" ui-sref="login" menu-close>
+                          <i class="icon ion-log-in"></i>
+                          ADD Blog
                       </a>
                       <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
                           <i class="icon ion-log-in"></i>

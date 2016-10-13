@@ -1,5 +1,6 @@
 ﻿.ion-contentColor {
-background-color:#F0F0F0;
+/*background-color:#F0F0F0;*/
+background-color:white;
 }
 .profile-picture {
     border-radius:50%;
