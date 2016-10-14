@@ -9,31 +9,31 @@
        </div>
        <div class="list list-inset">
            <label class="item item-input">
-               <input type="text" placeholder="First Name" ng-model="data.firstName">
+               <input type="text" placeholder="First Name" ng-model="data.FirstName">
            </label>
            <label class="item item-input">
-               <input type="text" placeholder="Last Name" ng-model="data.lastName">
+               <input type="text" placeholder="Last Name" ng-model="data.LastName">
            </label>
            <label class="item item-input">
-               <input type="text" placeholder="Username" ng-model="data.username">
+               <input type="text" placeholder="Username" ng-model="data.UserName">
            </label>
            <label class="item item-input">
-               <input type="email" placeholder="Email" ng-model="data.email">
+               <input type="email" placeholder="Email" ng-model="data.Email">
            </label>
            <label class="item item-input">
-               <input type="password" placeholder="Password" ng-model="data.password">
+               <input type="password" placeholder="Password" ng-model="data.Password">
            </label>
            <label class="item item-input">
-               <input type="password" placeholder="Confirm Password" ng-model="data.confirm" >
+               <input type="password" placeholder="Confirm Password" ng-model="confirm" >
            </label>
            <label class="item item-input">
-               <input type="text" placeholder="mobile no." ng-model="data.mobile">
+               <input type="text" placeholder="mobile no." ng-model="data.Mobile">
            </label>
           
          
        </div>
        <div class="row">
-           <button class="button button-block button-positive" >Register</button>
+           <button class="button button-block button-positive" ng-click="registerUser(data)">Register</button>
        </div>
    </ion-content>
 </ion-view>

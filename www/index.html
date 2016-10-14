@@ -7,6 +7,8 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+      <link href="lib/toastr/toastr.css" rel="stylesheet" />
+   
       <link href="css/customstyle.css" rel="stylesheet" />
       <link href="fonts/Montserrat-Black/Montserrat-Black.css" rel="stylesheet" />
       <link href="fonts/Montserrat-UltraLight/Montserrat-UltraLight.css" rel="stylesheet" />
@@ -22,7 +24,8 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
+    
+    
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -30,6 +33,7 @@
     <!-- your app's js -->
 
       <script src="app/app.js"></script>
+      <script src="lib/toastr/toastr.js"></script>
   </head>
   <body  ng-app="trust" class="ion-contentColor" style="font-family:'Conv_Montserrat-Light',Sans-Serif;">
 
@@ -144,6 +148,8 @@
           </ion-side-menu>
 
       </ion-side-menus>
+
+      <script src="app/services/httpservice.js"></script>
       <script src="app/controllers/blogsdashboard/dashboard.module.js"></script>
       <script src="app/controllers/login/login.module.js"></script>
       <script src="app/controllers/registration/registration.module.js"></script>
@@ -154,5 +160,6 @@
       <script src="app/controllers/blogsdetailed/blogsdetailed.module.js"></script>
       <script src="app/controllers/addblog/addblog.controller.js"></script>
       <script src="app/controllers/addblog/addblog.module.js"></script>
+      
   </body>
 </html>

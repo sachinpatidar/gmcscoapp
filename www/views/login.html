@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col col-offset-33">
                
-                    <input type="text" placeholder="Username" ng-model="data.username">
+                    <input type="text" placeholder="Username" ng-model="data.UserName">
                
             </div>
             </div>
@@ -11,7 +11,7 @@
             <div class="col col-offset-33">
                
 
-                    <input type="password" placeholder="Password" ng-model="data.password">
+                    <input type="password" placeholder="Password" ng-model="data.Password">
              
 </div>
              
@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col col-offset-33">
-                <button class="button button-small button-positive-custom" style="color:blue"><i class="ion-log-in"></i></button>
+                <button class="button button-small button-positive-custom" style="color:blue"  ng-click="authenticateUser(data)"><i class="ion-log-in"></i></button>
             </div>
         </div>
         <div class="row">

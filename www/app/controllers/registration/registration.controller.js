@@ -1,4 +1,4 @@
-﻿angular.module('registration.module.controller', []).controller('registration.controller', function ($scope, $ionicPopover) {
+﻿angular.module('registration.module.controller', []).controller('registration.controller', function ($scope,$ionicLoading, $ionicPopover,$state, httpServices) {
     $scope.dataSrc = "img/classprofile.png"
     $scope.setProfilePicture = function () {
         $scope.popover.hide();
@@ -31,6 +31,20 @@
           
       
   }
+  $scope.registerUser = function (data) {
+      $ionicLoading.show();
+      httpServices.post('/RegisterUser', data).then(function (response) {
+          $ionicLoading.hide();
+          $state.go('dashboard');
+      }, function (error) {
+
+
+      })
+
+
+
+
+  }
    function profilePictureSuccess(imageUrl) {
     
        document.getElementById('camera').src = imageUrl;
@@ -54,59 +68,4 @@
    $scope.closePopover = function () {
        $scope.popover.hide();
    };
-   //$scope.show = function() {
-
-   //    // Show the action sheet
-   //    var hideSheet = $ionicActionSheet.show({
-   //        buttons: [
-   //          { text: '<button class="button button-block button-stable">Take Photo</button><button class="button button-block button-stable">Choose From Gallery</button>' },
-   //        //  { text: '<button class="button button-block button-stable">Choose From Gallery</button>' }
-   //        ],
-           
-   //        titleText: 'Choose',
-   //        cancelText: 'Cancel',
-   //        cancel: function() {
-   //            // add cancel code..
-   //        },
-   //        buttonClicked: function (index) {
-   //            if (index == 0)
-   //            {
-   //                $scope.takeFromCamera();
-   //                hideSheet();
-   //            }
-   //            if (index == 1)
-   //            {
-   //                $scope.setProfilePicture();
-   //                hideSheet();
-   //            }
-   //            return true;
-   //        }
-   //    });
-
-   //    // For example's sake, hide the sheet after two seconds
-
-   //};
-
-   //var myPopup = $ionicPopup.show({
-   //    template: '<div class="row"><button class="button button-block button-stable" data-ng-model="takeFromCamera()">take photo</button></div>' +
-   //        '<div class="row"><button data-ng-model="setProfilePicture()">choose from library</button></div>',
-   //    title: 'Enter Wi-Fi Password',
-   //    subTitle: 'Please use normal things',
-   //    scope: $scope,
-   //    buttons: [
-   //      { text: 'Cancel' },
-   //      {
-   //          text: '<b>Save</b>',
-   //          type: 'button-positive',
-   //          onTap: function (e) {
-   //              if (!$scope.data.wifi) {
-   //                  //don't allow the user to close unless he enters wifi password
-   //                  e.preventDefault();
-   //              } else {
-   //                  return $scope.data.wifi;
-   //              }
-   //          }
-   //      }
-   //    ]
-   //});
 })
