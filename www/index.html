@@ -7,7 +7,8 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-      <link href="lib/toastr/toastr.css" rel="stylesheet" />
+
+      <link href="lib/ionic-toast/src/ionic-toast.css" rel="stylesheet" />
    
       <link href="css/customstyle.css" rel="stylesheet" />
       <link href="fonts/Montserrat-Black/Montserrat-Black.css" rel="stylesheet" />
@@ -18,6 +19,8 @@
       <link href="fonts/Montserrat-Hairline/Montserrat-Hairline.css" rel="stylesheet" />
       <link href="fonts/Montserrat-ExtraBold/Montserrat-ExtraBold.css" rel="stylesheet" />
       <link href="fonts/Montserrat-Bold/Montserrat-Bold.css" rel="stylesheet" />
+
+      <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -25,7 +28,8 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     
-    
+
+      <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -33,7 +37,7 @@
     <!-- your app's js -->
 
       <script src="app/app.js"></script>
-      <script src="lib/toastr/toastr.js"></script>
+    
   </head>
   <body  ng-controller="main" class="ion-contentColor" style="font-family:'Conv_Montserrat-Light',Sans-Serif;">
 
@@ -81,71 +85,43 @@
                           </div>
 
                       </div>
-                      <!--<h5 style="color:white; text-align:center ;padding:0px 0px 12px 0px">
-
-                          Hello Sachin!
-
-
-                      </h5>-->
+                    
                   
                  
                   <ion-scroll scroll="true" direction="y" style="height:300px">
                       <div class="list">
 
-                          <!--<a class="item item-icon-left item-borderless" menu-close ui-sref="dashboard">
-                              <i class="icon ion-paper-airplane"></i>
-                              Old Activities
-                          </a>
-                          <a class="item item-icon-left item-borderless" menu-close href="#">
-                              <i class="icon ion-laptop"></i>
-                              Current Activities
-                          </a>
-                          <a class="item item-icon-left item-borderless" menu-close href="#">
-                              <i class="icon ion-wand"></i>
-                              Invitation
-                          </a>
-                          <a class="item item-icon-left item-borderless" menu-close href="#">
-                              <i class="icon ion-email"></i>
-                              Talent Club
-                          </a>
-                          <a class="item item-icon-left  item-borderless " ui-sref="addblog" menu-close>
-                              <i class="icon ion-social-rss"></i>
-                              New Creation
-                          </a>
-                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
-                              <i class="icon ion-log-in"></i>
-                              Blood Union
-                          </a>
-                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
-                              <i class="icon ion-log-in"></i>
-                              Natural Healthy tips
-                          </a>
-                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
-                              <i class="icon ion-log-in"></i>
-                              Helping News
-                          </a>-->
                         
-                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close ng-repeat="value in values | orderBy:'CatOrderBy'">
-                              <i class="icon ion-log-in"></i>
+                          <a class="item item-icon-left item-borderless"  menu-close ng-repeat="value in values | orderBy:'CatOrderBy'">
+                             <p><i class="{{value.CatClassName}}" style="font-size:20px"></i></p>
+                            
+                             <h3>{{value.CategoryName}}</h3>
                              
-                             {{value.CategoryName}}
                           </a>
 
 
                       </div>
                   </ion-scroll>
                   <div class="list">
-                      <a class="item item-icon-left" ui-sref="login" menu-close>
-                          <i class="icon ion-log-in"></i>
-                          ADD Blog
+                      <a class="item item-icon-left" ui-sref="login" menu-close ng-show="loginStatus">
+                          <p><i class="icon ion-social-rss" style="font-size:20px"></i></p>
+                         <h3> ADD Blog</h3>
+                      </a>
+                      <a class="item item-icon-left" ui-sref="registration" menu-close ng-hide="loginStatus">
+                          <p><i class="icon ion-person-add" style="font-size:20px"></i></p>
+                          <h3>Sign Up</h3>
+                      </a>
+                      <a class="item item-icon-left item-borderless" ui-sref="login" menu-close ng-hide="loginStatus">
+                          <p><i class="icon ion-log-in" style="font-size:20px"></i></p>
+                         <h3>Login</h3> 
+                      </a>
+                      <a class="item item-icon-left item-borderless" menu-close ng-show="loginStatus" ng-click="signOut()">
+                          <p><i class="icon ion-log-out" style="font-size:20px"></i></p>
+                          <h3>SignOut</h3>
                       </a>
                       <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
-                          <i class="icon ion-log-in"></i>
-                          Login
-                      </a>
-                      <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
-                          <i class="icon ion-log-in"></i>
-                          setting
+                          <p><i class="icon ion-gear-b" style="font-size:20px"></i></p>
+                        <h3>setting</h3>  
                       </a>
 
                   </div>

@@ -73,8 +73,11 @@ top:12%;
   right: 0;
 }
 .place {
-    border-bottom:solid !important; border-color:silver !important; border-width:1px !important;text-align:center!important;margin:0 auto;width:33%;font-size:20px !important
+    border-bottom:solid !important; border-color:silver !important; border-width:1px !important;text-align:center!important;margin:0 auto;width:75%;font-size:16px !important
 }
+    .place.border {
+        border-bottom:none !important;
+    }
 
 
  

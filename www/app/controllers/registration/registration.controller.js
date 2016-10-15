@@ -1,4 +1,4 @@
-﻿angular.module('registration.module.controller', []).controller('registration.controller', function ($scope,$ionicLoading, $ionicPopover,$state, httpServices) {
+﻿angular.module('registration.module.controller', []).controller('registration.controller', function ($scope,ionicToast, $ionicPopover,$state, httpServices) {
     $scope.dataSrc = "img/classprofile.png"
     $scope.setProfilePicture = function () {
         $scope.popover.hide();
@@ -32,13 +32,14 @@
       
   }
   $scope.registerUser = function (data) {
-      $ionicLoading.show();
+   
       httpServices.post('/RegisterUser', data).then(function (response) {
-          $ionicLoading.hide();
+        
+          ionicToast.show('Successfully Registered', 'bottom', true, 2500);
           $state.go('dashboard');
       }, function (error) {
 
-
+          ionicToast.show('Some error occured', 'bottom', true, 2500);
       })
 
 

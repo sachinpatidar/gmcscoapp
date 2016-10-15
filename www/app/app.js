@@ -10,7 +10,8 @@ angular.module('trust', ['ionic',
     'blogsdetailed.module',
     'addblogs.module',
 'http.service.module',
-'main.module.controller'
+'main.module.controller',
+'ionic-toast'
 ])
 
 .run(function($ionicPlatform) {
