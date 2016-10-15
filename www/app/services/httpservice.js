@@ -4,8 +4,8 @@
     var url = 'http://smartservicesapp.com/Service.svc';
   this.get=function(urlres){
       var q = $q.defer();
-      $http.get(urlres+url).then(function (result) {
-          alert(JSON.stringify(result));
+      $http.get(url+urlres).then(function (result) {
+         
           q.resolve(result);
       }, function (error) {
           q.reject(error);

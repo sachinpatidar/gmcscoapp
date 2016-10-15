@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html  ng-app="trust">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -35,7 +35,7 @@
       <script src="app/app.js"></script>
       <script src="lib/toastr/toastr.js"></script>
   </head>
-  <body  ng-app="trust" class="ion-contentColor" style="font-family:'Conv_Montserrat-Light',Sans-Serif;">
+  <body  ng-controller="main" class="ion-contentColor" style="font-family:'Conv_Montserrat-Light',Sans-Serif;">
 
       <ion-side-menus enable-menu-with-back-views="true">
 
@@ -92,7 +92,7 @@
                   <ion-scroll scroll="true" direction="y" style="height:300px">
                       <div class="list">
 
-                          <a class="item item-icon-left item-borderless" menu-close ui-sref="dashboard">
+                          <!--<a class="item item-icon-left item-borderless" menu-close ui-sref="dashboard">
                               <i class="icon ion-paper-airplane"></i>
                               Old Activities
                           </a>
@@ -123,10 +123,12 @@
                           <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
                               <i class="icon ion-log-in"></i>
                               Helping News
-                          </a>
-                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
+                          </a>-->
+                        
+                          <a class="item item-icon-left item-borderless" ui-sref="login" menu-close ng-repeat="value in values | orderBy:'CatOrderBy'">
                               <i class="icon ion-log-in"></i>
-                              Others
+                             
+                             {{value.CategoryName}}
                           </a>
 
 
@@ -141,8 +143,13 @@
                           <i class="icon ion-log-in"></i>
                           Login
                       </a>
+                      <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
+                          <i class="icon ion-log-in"></i>
+                          setting
+                      </a>
+
                   </div>
-                   
+                 
 
 </ion-content>
           </ion-side-menu>
@@ -160,6 +167,7 @@
       <script src="app/controllers/blogsdetailed/blogsdetailed.module.js"></script>
       <script src="app/controllers/addblog/addblog.controller.js"></script>
       <script src="app/controllers/addblog/addblog.module.js"></script>
-      
+
+      <script src="app/controllers/main/main.controller.js"></script>
   </body>
 </html>

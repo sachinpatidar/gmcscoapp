@@ -1,38 +1,34 @@
 ﻿<ion-view view-title="Login" name="login-view">
-    <ion-content class="ion-contentColor">
+    <ion-content class="ion-contentColor" style="margin-top:10%">
         <div class="row">
-            <div class="col col-offset-33">
+            <div class="col" >
                
-                    <input type="text" placeholder="Username" ng-model="data.UserName">
-               
+                    <input type="text" class="place" placeholder="Username" ng-model="data.UserName" ng-hide="passhow" />
+                <input type="password" class="place" placeholder="Password" ng-model="data.Password" ng-show="passhow" />
             </div>
+           
             </div>
-        <div class="row"> 
-            <div class="col col-offset-33">
-               
-
-                    <input type="password" placeholder="Password" ng-model="data.Password">
-             
-</div>
-             
-    
-        </div>
+        <!--<div class="row" >
+            <div class="col col-50 col-offset-25" style="border-bottom:solid; border-color:silver; border-width:1px"></div>
+        </div>-->
+      
         <div class="row">
-            <div class="col col-offset-33">
-                <button class="button button-small button-positive-custom" style="color:blue"  ng-click="authenticateUser(data)"><i class="ion-log-in"></i></button>
+            <div class="col" style="text-align:center">
+                <button class="button button-small button-positive-custom" style="color:blue" ng-click="authenticateUser(data)"><i class="ion-log-in" style="font-size:30px"></i></button>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
            
             <div class="col col-offset-25 col-50">
                 <a class="button button-small button-full button-custom" ui-sref="registration">Create New Account</a>
             </div>
             
            
-        </div>
+        </div>-->
         <div class="row">
-            <div class="col col-offset-25 col-50 text-center">
-               <a ui-sref="forgotPassword">Forgotten Password?</a>
+            <div class="col text-center">
+                <a ui-sref="forgotPassword">Forgot Password?</a><br />
+           <a ui-sref="registration">SignUp</a>
             </div>
         </div>
     </ion-content>

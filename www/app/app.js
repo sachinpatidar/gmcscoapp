@@ -10,7 +10,7 @@ angular.module('trust', ['ionic',
     'blogsdetailed.module',
     'addblogs.module',
 'http.service.module',
-
+'main.module.controller'
 ])
 
 .run(function($ionicPlatform) {
