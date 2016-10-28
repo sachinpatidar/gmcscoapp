@@ -1,9 +1,8 @@
-﻿angular.module('registration.module.controller', []).controller('registration.controller', function ($scope,ionicToast, $ionicPopover,$state, httpServices) {
+﻿angular.module('registration.module.controller', []).controller('registration.controller', function ($scope, ionicToast,$rootScope, $ionicPopover, $state, httpServices, $ionicLoading) {
     $scope.dataSrc = "img/classprofile.png"
+  
     $scope.setProfilePicture = function () {
         $scope.popover.hide();
-     
-        
             navigator.camera.getPicture(profilePictureSuccess, profilePictureFail, {
                 quality: 50,
                 correctOrientation: true,
@@ -16,42 +15,70 @@
             });
         
   }
-  $scope.takeFromCamera = function () {
-  
-      $scope.popover.hide();
-   
+  $scope.takeFromCamera = function () { 
+      $scope.popover.hide();   
           navigator.camera.getPicture(profilePictureSuccess, profilePictureFail, {
-              quality: 50,
-             
+              quality: 50,             
               correctOrientation: true,
               destinationType: navigator.camera.DestinationType.FILE_URI,
               sourceType: navigator.camera.PictureSourceType.CAMERA,
           });
-   
-          
-      
   }
   $scope.registerUser = function (data) {
-   
-      httpServices.post('/RegisterUser', data).then(function (response) {
+     
+      alert(JSON.stringify(data));
+      document.addEventListener("deviceready", onDeviceReady, false);
+  
+    
+
+     
+      //httpServices.post('/RegisterUser', reqData).then(function (response) {
         
-          ionicToast.show('Successfully Registered', 'bottom', true, 2500);
-          $state.go('dashboard');
-      }, function (error) {
+      //    ionicToast.show('Successfully Registered', 'bottom', true, 2500);
+      //    $state.go('dashboard');
+      //}, function (error) {
 
-          ionicToast.show('Some error occured', 'bottom', true, 2500);
-      })
+      //    ionicToast.show('Some error occured', 'bottom', true, 2500);
+      //})
 
+      function onDeviceReady() {
 
+          
+          var fileURL = $scope.FileName;
+          var options = new FileUploadOptions();
+          options.fileKey = "file";
+          options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+          options.mimeType = "text/plain";
+
+          var params = {};
+          params = data;
+
+          options.params = params;
+          var ft = new FileTransfer();
+          $ionicLoading.show();
+          ft.upload(fileURL, encodeURI("http://smartservicesapp.com/PicUpload.ashx"), function (r) {
+              ionicToast.show('Registered Successfully', 'bottom', false, 2500);
+              
+              $rootScope.profilePicture = "data:image/jpeg;base64," + r.response;
+            
+              $ionicLoading.hide();
+              $state.go('login');
+          }, function (error) {
+              alert("An error has occurred: Code = " + error.code);
+              alert("upload error source " + error.source);
+              alert("upload error target " + error.target);
+          }, options);
+      }
 
 
   }
+ 
    function profilePictureSuccess(imageUrl) {
     
-       document.getElementById('camera').src = imageUrl;
+       document.getElementById('camera').src =imageUrl;
        document.getElementById('camera').height = 180;
        document.getElementById('camera').width = 180;
-       $scope.dataSrc = imageUrl;
+       $scope.FileName = imageUrl;
        
         
     }
