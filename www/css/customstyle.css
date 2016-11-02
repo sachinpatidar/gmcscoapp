@@ -79,8 +79,11 @@ top:12%;
         border-bottom:none !important;
     }
 
-     .profile-pic { margin:0 0 30px 0; }
-  .profile-pic .round { border-radius:50%; width:160px; height:160px; overflow:hidden; margin:0 auto; }
+     .profile-pic { margin:0 0 0 0; }
+     .profile-pic-index { margin:0 0 30px 0; }
+  .profile-pic .round { border-radius:50%; width:160px; height:160px;
+                         overflow:hidden;
+                          margin:0 auto; }
   .profile-pic .round img { display:block; height:100%; width:100%; }
 
    .blue { color:#112173; }

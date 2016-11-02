@@ -86,18 +86,31 @@
 
                       </div>-->
 
-                  <div class="center">
-                      <p class="blue bold">Hello Sachin!</p>
+                  <div class="center" style="background-color:black">
+                      <!--<p class="blue bold">Hello Sachin!</p>-->
                       <div class="profile-pic">
-                          <div class="round"><a href="#"><img ng-src="{{profilePicture}}" alt="" draggable="false"></a></div>
+                          <div class="round"  style="width:70px;height:70px" ><a href="#"><img  ng-src="{{profilePicture}}" alt="" draggable="false"/></a></div>
+                          <p style="color:white; text-align:center;">Hello Sachin!</p>
                       </div>
+                      
                   </div>
                     
                   
-                 
+                
                   <ion-scroll scroll="true" direction="y" style="height:300px">
                       <div class="list">
+                          <a class="item item-icon-left item-borderless" menu-close >
+                              <p><i class="icon ion-ios-stopwatch-outline" style="font-size:20px"></i></p>
 
+                              <h3>Current Activities</h3>
+
+                          </a>
+                          <a class="item item-icon-left item-borderless" menu-close>
+                              <p><i class="icon fa fa-history" style="font-size:20px"></i></p>
+
+                              <h3>Old Activities</h3>
+
+                          </a>
                         
                           <a class="item item-icon-left item-borderless"  menu-close ng-repeat="value in values | orderBy:'CatOrderBy'">
                              <p><i class="{{value.CatClassName}}" style="font-size:20px"></i></p>
@@ -110,7 +123,7 @@
                       </div>
                   </ion-scroll>
                   <div class="list">
-                      <a class="item item-icon-left" ui-sref="login" menu-close ng-show="loginStatus">
+                      <a class="item item-icon-left" ui-sref="addblog" menu-close ng-show="loginStatus">
                           <p><i class="icon ion-social-rss" style="font-size:20px"></i></p>
                          <h3> ADD Blog</h3>
                       </a>
@@ -126,7 +139,7 @@
                           <p><i class="icon ion-log-out" style="font-size:20px"></i></p>
                           <h3>SignOut</h3>
                       </a>
-                      <a class="item item-icon-left item-borderless" ui-sref="login" menu-close>
+                      <a class="item item-icon-left item-borderless" ui-sref="dashboard" menu-close>
                           <p><i class="icon ion-gear-b" style="font-size:20px"></i></p>
                         <h3>setting</h3>  
                       </a>

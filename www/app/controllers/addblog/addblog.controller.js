@@ -1,5 +1,6 @@
 ﻿angular.module('addblogs.module.controller', []).controller('addblogs.controller', function ($scope, $ionicHistory,$state) {
     $scope.images = [];
+
     $scope.addImage = function () {
 
         navigator.camera.getPicture(imageAddSuccess, imageAddFail, {

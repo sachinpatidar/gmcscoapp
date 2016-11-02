@@ -14,7 +14,10 @@ angular.module('trust', ['ionic',
 'ionic-toast'
 ])
 
-.run(function($ionicPlatform) {
+.run(function ($ionicPlatform) {
+  
+
+
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -30,6 +33,7 @@ angular.module('trust', ['ionic',
       StatusBar.styleDefault();
     }
   });
-}).config(function ($urlRouterProvider) {
+}).config(function ($urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.views.maxCache(0);
     $urlRouterProvider.otherwise('dashboard');
 })

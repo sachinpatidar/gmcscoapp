@@ -1,6 +1,6 @@
 ﻿angular.module('registration.module.controller', []).controller('registration.controller', function ($scope, ionicToast,$rootScope, $ionicPopover, $state, httpServices, $ionicLoading) {
     $scope.dataSrc = "img/classprofile.png"
-  
+   
     $scope.setProfilePicture = function () {
         $scope.popover.hide();
             navigator.camera.getPicture(profilePictureSuccess, profilePictureFail, {
@@ -26,7 +26,7 @@
   }
   $scope.registerUser = function (data) {
      
-      alert(JSON.stringify(data));
+      
       document.addEventListener("deviceready", onDeviceReady, false);
   
     
@@ -56,13 +56,20 @@
           options.params = params;
           var ft = new FileTransfer();
           $ionicLoading.show();
+          if (fileURL == null||fileURL=="")
+          {
+
+          }
           ft.upload(fileURL, encodeURI("http://smartservicesapp.com/PicUpload.ashx"), function (r) {
               ionicToast.show('Registered Successfully', 'bottom', false, 2500);
               
               $rootScope.profilePicture = "data:image/jpeg;base64," + r.response;
+              $rootScope.loginStatus = true;
+              // alert(JSON.stringify(response));
+           
             
               $ionicLoading.hide();
-              $state.go('login');
+              $state.go('dashboard', null, { reload: true });
           }, function (error) {
               alert("An error has occurred: Code = " + error.code);
               alert("upload error source " + error.source);
