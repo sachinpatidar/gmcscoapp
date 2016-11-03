@@ -14,14 +14,21 @@
                     $rootScope.loginStatus = true;
                     alert(JSON.stringify(response));
                     $ionicHistory.clearHistory();
-                    $state.go('dashboard');
+                    ionicToast.show(response.data.Success, 'bottom', false, 2500);
+
+                    httpServices.get('/GetUserInfo/' + response.data.Source).then(function (dat) {
+                        alert(JSON.stringify(dat));
+                        $rootScope.profilePicture ="http://smartservicesapp.com/Uploads/profilepic/"+ dat.data.GetUserInfoResult[0].FilePathName;
+                        $rootScope.profileName = "Hello! " + dat.data.GetUserInfoResult[0].FirstName;
+                        alert("Hello! " + dat.data.GetUserInfoResult[0].FirstName)
+                        $state.go('dashboard');
+                    }, function (error) {
+
+                    })
+                   
                 }
                 else {
-                    ionicToast.show(response.data.Success, 'bottom', false, 2500);
-                    $scope.$apply(function () {
-                        $scope.data.UserName = '';
-                        $scope.data.Password = '';
-                    });
+                    
                     
                 }
             }, function (error) {
