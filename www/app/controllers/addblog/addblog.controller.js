@@ -1,43 +1,103 @@
-﻿angular.module('addblogs.module.controller', []).controller('addblogs.controller', function ($scope, $ionicHistory,$state) {
-    $scope.images = [];
+﻿angular.module('addblogs.module.controller', []).controller('addblogs.controller', function ($scope, $ionicLoading, $ionicHistory, $state, httpServices, ionicToast) {
+    //  $scope.images = ["img/classprofile.png"];
+     $scope.images = [];
+    var status = localStorage.getItem("UserID");
+    //  alert(    httpServices.Bloglist('L', null));
+    if (status === null || status === undefined || status === 'undefined' || status === '') {
+        $state.go('login');
+    }
 
     $scope.addImage = function () {
-
         navigator.camera.getPicture(imageAddSuccess, imageAddFail, {
+            //quality: 50,
+            //destinationType: navigator.camera.DestinationType.FILE_URI,
+            //sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+            //mediaType: Camera.MediaType.PICTURE
+
             quality: 50,
+            correctOrientation: true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 2592,
+            targeHeight: 4608,
             destinationType: navigator.camera.DestinationType.FILE_URI,
             sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
             mediaType: Camera.MediaType.PICTURE
+
         });
     }
+
     function imageAddSuccess(imageUrl) {
-      
+
         $scope.images.push(imageUrl);
     }
-    function imageAddFail(ex) {
 
-       
+    function imageAddFail(ex) {
     }
+
+
+
     $scope.addBlog = function (data) {
-      
-        document.addEventListener("deviceready", onDeviceReady, false);
+        var BlogIDs = 0;
+        //  debugger;
+        // Add Blog records 
+        data.UserID = parseInt(localStorage.getItem("UserID"));
+        if (data.CategoryID == "" || data.CategoryID == undefined) {
+            $ionicHistory.clearHistory();
+            ionicToast.show("Please select Category.", 'bottom', false, 2500);
+            return;
+        }
+        if (data.PrivacyID == "" || data.PrivacyID == undefined) {
+            $ionicHistory.clearHistory();
+            ionicToast.show("Please select privacy.", 'bottom', false, 2500);
+            return;
+        }
+
+        data.PrivacyID = parseInt(data.PrivacyID);
+        data.CategoryID = parseInt(data.CategoryID);
+
+        httpServices.post('/AddBlogs', data).then(function (response) {
+     
+            BlogIDs = response.data.Source;
+           //  debugger;
+            if ($scope.images.length >0) {
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
+            else {
+                httpServices.Bloglist('L',null);
+            }
+
+        }, function (error) {
+            //    alert("AddBlog :: " + JSON.stringify(error))
+        });
+
+
         function onDeviceReady() {
+
             for (var i = 0; i < $scope.images.length; i++) {
 
 
                 var fileURL = $scope.images[i];
+
                 var options = new FileUploadOptions();
                 options.fileKey = "file";
                 options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-                options.mimeType = "text/plain";
-                var ft = new FileTransfer();
-                $ionicLoading.show();
-                if (fileURL == null || fileURL == "") {
 
-                }
-                ft.upload(fileURL, encodeURI("http://smartservicesapp.com/BlogImagesUpload.ashx"), function (r) {
+                options.mimeType = "text/plain";
+                var params = {};
+
+                options.params = { "BlogIDs": BlogIDs };
+                var ft = new FileTransfer();
+                //alert(fileURL);
+                //alert(JSON.stringify(options));
+                $ionicLoading.show();
+                ft.upload(fileURL, encodeURI("http://smartservicesapp.com/PicBlog.ashx"), function (r) {
                     JSON.stringify(r);
-                   
+                    var result = { blog: data, image: $scope.images }
+                    localStorage.setItem("blogadded", JSON.stringify(result));
+                    var value = $ionicHistory.clearCache();
+                    value.then(function () {
+                        httpServices.Bloglist('L', null);
+                    })
                 }, function (error) {
                     alert("An error has occurred: Code = " + error.code);
                     alert("upload error source " + error.source);
@@ -46,12 +106,15 @@
             }
         }
 
-        var result={blog:data,image:$scope.images}
-        localStorage.setItem("blogadded", JSON.stringify(result));
-        var value = $ionicHistory.clearCache();
-        value.then(function () {
-            $state.go("dashboard");
-        })
-      
+
+
     }
+    httpServices.get('/GetPrivacyTypeList/L').then(function (response) {
+        //     alert(response);
+        $scope.Privacyvalues = response.data.GetPrivacyTypeListResult;
+    }, function (error) {
+    });
+
+
+
 })

@@ -90,7 +90,7 @@
         
     }
    function profilePictureFail(ex) {
-        alert('failed called' + JSON.stringify(ex));
+      //  alert('failed called' + JSON.stringify(ex));
    }
    var template = '<ion-popover-view style="height:100px; width:90%"><ion-content class="ion-contentColor dark-border"><div class="row"><div class="col text-center" data-ng-click="takeFromCamera()"><img src="img/1469647735_camera.ico"  height="77px" width="77px"/></div><div class="col text-center" data-ng-click="setProfilePicture()"><img src="img/1469647872_image.ico"  height="77px" width="77px"/></div></div> </ion-content></ion-popover-view>';
 

@@ -1,97 +1,32 @@
 ﻿<ion-view view-title="Trust">
     <ion-content>
-        
-        <div class="list card" ng-hide="newBlog==null">
+
+
+        <div ng-repeat="val in blogvalues" class="list card has-header">
 
             <div class="item item-avatar">
 
-                <img src="img/1272.jpg" />
-                <h2>sachin patidar</h2>
-                <p>July 25, 2016</p>
+                <img src="http://smartservicesapp.com/Uploads/ProfilePic/{{val.Userinfo[0].FilePathName}}" />
+                <h2>{{val.Userinfo[0].FirstName}} {{val.Userinfo[0].LastName}} </h2>
+                <p>  
+                    {{convertDate(val.CreatedDate) | date:'MMM dd, y'}}
+            
+                </p>
             </div>
 
             <div class="item item-body">
-                <img class="full-image" src="{{newBlog.image[0]}}" />
+                <img class="full-image" src="http://smartservicesapp.com/Uploads/BlogDoc/{{val.Fileinfo[0]}}" />
                 <p>
-                    {{newBlog.blog}}
+                   {{val.textContent}}
                 </p>
                 <p>
-                    <a href="#" class="subdued">1 Like</a>
-                    <a href="#" class="subdued">5 Comments</a>
-                    <a ui-sref="blogsdetailed({Id:2})" class="subdued item-note">Read More...</a>
+                    <a href="#" class="subdued">Like</a>
+                    <a href="#" class="subdued">Comments</a>
+                    <a ui-sref="blogsdetailed({BlogId:val.BlogId,CategoryID:null})" class="subdued item-note">Read More...</a>
                 </p>
             </div>
 
         </div>
-            <div class="list card">
 
-                <div class="item item-avatar">
-
-                    <img src="img/1272.jpg" />
-                    <h2>sachin patidar</h2>
-                    <p>July 25, 2016</p>
-                </div>
-
-                <div class="item item-body">
-                    <img class="full-image" src="img/TECHNOLOGY-BLOGs.png" />
-                    <p>
-                        This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-                        the content is from a card-body consisting of an image and paragraph text. The footer
-                        consists of tabs, icons aligned left, within the card-footer.
-                    </p>
-                    <p>
-                        <a href="#" class="subdued">1 Like</a>
-                        <a href="#" class="subdued">5 Comments</a>
-                        <a ui-sref="blogsdetailed({Id:2})" class="subdued item-note">Read More...</a>
-                    </p>
-                </div>
-
-            </div>
-            <div class="list card has-header">
-
-                <div class="item item-avatar">
-
-                    <img src="img/713.jpg" />
-                    <h2>pawan Jatav</h2>
-                    <p>July 25, 2016</p>
-                </div>
-
-                <div class="item item-body">
-                    <img class="full-image" src="img/power1.jpg" />
-                    <p>
-                        AJAX(Int), ASP.NET(Adv), C#.NET(Int), CRYSTAL REPORT(Int), CSS(Int), ENTITY FRAMEWORK(Int), HTML5(Beg), JAVASCRIPT(Int), JQUERY(Int), JQUERY(Int), LINQ(Int), MS REPORT(Adv), MS-ACCESS(Adv), MS-SQL(Int), MODEL-VIEW-CONTROLLER(MVC)(Lea), PHONEGAP(Int), SQL SERVER(Int), XML(Int), NODE JS(Beg), BOOTSTRAP FW(Beg), ADOBE PDF FORM PROGRAMMING(Beg), MVC WEBAPI(Beg), XAMARIN(Int), IONIC FRAMEWORK(Int), GOOGLE ANALYTICS(Beg)
-            </p>
-                    <p>
-                        <a href="#" class="subdued">1 Like</a>
-                        <a href="#" class="subdued">5 Comments</a>
-                        <a href="#" class="subdued item-note">Read More...</a>
-                    </p>
-                </div>
-
-            </div>
-            <div class="list card has-header">
-
-                <div class="item item-avatar">
-
-                    <img src="img/amirkhan.jpg" />
-                    <h2>Amir Khan</h2>
-                    <p>July 25, 2016</p>
-                </div>
-
-                <div class="item item-body">
-                    <img class="full-image" src="img/index.jpg" />
-                    <p>
-                        Driven by their passion for acting and love for Bollywood, Stockholm residents 25-year-old Johan Bartoli and 26-year-old Hampus Bergqvist.
-                        Nargis Fakhri has not left Bollywood following her alleged break-up with Uday Chopra. The actress answers all baseless rumours like a boss.
-                    </p>
-                    <p>
-                        <a href="#" class="subdued">1 Like</a>
-                        <a href="#" class="subdued">5 Comments</a>
-                        <a href="#" class="subdued item-note">Read More...</a>
-                    </p>
-                </div>
-
-            </div>
-      
     </ion-content>
 </ion-view>
