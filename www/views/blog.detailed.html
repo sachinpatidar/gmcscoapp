@@ -1,0 +1,80 @@
+﻿<ion-view>
+    <ion-content>
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img src="img/1272.jpg">
+                <h2>Sachin Patidar</h2>
+                <p>September 08, 1992</p>
+            </div>
+     
+              
+                    <div class="left">
+                        <div style="background-color:highlight;opacity:0.4">
+                            <button class="button button-positive  no-animation icon ion-chevron-left"
+                                    ng-click="" ng-if="!slideIndex" style="color: black"></button>
+                            <button class="button button-positive  no-animation icon ion-chevron-left"
+                                    ng-click="previous()" ng-if="slideIndex > 0" style="color: black"></button>
+                        </div>
+                    </div>
+
+
+                    <div class="right">
+                        <div style="background-color:highlight;opacity:0.4">
+                            <button class="button button-positive  no-animation icon ion-chevron-right"
+                                    ng-click="next()" ng-if="!slideIndex" style="color: black"></button>
+                            <button class="button button-positive no-animation icon ion-chevron-right"
+                                    ng-click="next()" style="color: black" ng-if="slideIndex>0"></button>
+                        </div>
+                    </div>
+              
+                <ion-slide-box on-slide-changed="slideChanged($index)">
+
+                    <ion-slide>
+                        <div><img class="full-image" src="img/3-nature-photography-cherry-tree.jpg" /></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div><img class="full-image" src="img/4-Nature-Wallpapers-2014-1_ukaavUI.jpg" /></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div><img class="full-image" src="img/3-nature-photography-cherry-tree.jpg" /></div>
+                    </ion-slide>
+                </ion-slide-box>
+
+     
+            <div class="item item-body">
+             
+                <p>
+                    This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                    the content is from a card-body consisting of an image and paragraph text. The footer
+                    consists of tabs, icons aligned left, within the card-footer. This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                    the content is from a card-body consisting of an image and paragraph text. The footer
+                    consists of tabs, icons aligned left, within the card-footer. This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                    the content is from a card-body consisting of an image and paragraph text. The footer
+                    consists of tabs, icons aligned left, within the card-footer. This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                    the content is from a card-body consisting of an image and paragraph text. The footer
+                    consists of tabs, icons aligned left, within the card-footer. This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                    the content is from a card-body consisting of an image and paragraph text. The footer
+                    consists of tabs, icons aligned left, within the card-footer. This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                    the content is from a card-body consisting of an image and paragraph text. The footer
+                    consists of tabs, icons aligned left, within the card-footer.
+                </p>
+                <p>
+                   
+                    <ion-item class="item-icon-right">
+                        <a href="#" class="subdued">1 Like</a>
+                        <a href="#" class="subdued">5 Comments</a>
+                        <i class="icon ion-arrow-down-a"><span class="badge badge-assertive icon-badge">2</span></i>
+                    </ion-item>
+                   <!-- <i class="icon ion-ios7-telephone-outline"><span class="badge badge-assertive icon-badge">2</span></i>-->
+                    <!--<a ui-sref="downloadVideo" class="item-note assertive"> <i class="ion-arrow-down-a badge-container  badge-positive" ></i><i class="badge badge-assertive">2</i> Video</a>-->
+                </p>
+            </div>
+
+        </div>
+
+      
+  
+
+    </ion-content>
+</ion-view>
