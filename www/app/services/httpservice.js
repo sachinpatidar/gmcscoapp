@@ -1,7 +1,8 @@
 ﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state', function ($q, $http, $ionicLoading, $rootScope, $state) {
 
    
-    var url = 'http://smartservicesapp.com/Service.svc'; //'http://localhost:59592/Service.svc';
+   // var url = 'http://smartservicesapp.com/Service.svc'; 
+var url = 'http://localhost:59592/Service.svc';
 
   this.get=function(urlres){
       var q = $q.defer();
