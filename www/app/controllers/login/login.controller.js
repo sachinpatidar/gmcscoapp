@@ -12,6 +12,7 @@
                 if (response.data.Source != 0) {
                     ionicToast.show(response.data.Success, 'bottom', false, 2500);
                     $rootScope.loginStatus = true;
+                    localStorage.setItem("loginStatus", true);
                  //   alert(JSON.stringify(response));
                     $ionicHistory.clearHistory();
                     ionicToast.show(response.data.Success, 'bottom', false, 2500);
@@ -20,6 +21,8 @@
                       //  alert(JSON.stringify(dat));
                         $rootScope.profilePicture ="http://smartservicesapp.com/Uploads/profilepic/"+ dat.data.GetUserInfoResult[0].FilePathName;
                         $rootScope.profileName = "Hello! " + dat.data.GetUserInfoResult[0].FirstName;
+                        localStorage.setItem('profileName', $rootScope.profileName);
+                        localStorage.setItem('profilePic', $rootScope.profilePicture);
                       //  alert("Hello! " + dat.data.GetUserInfoResult[0].FirstName)
                         $state.go('dashboard');
                     }, function (error) {

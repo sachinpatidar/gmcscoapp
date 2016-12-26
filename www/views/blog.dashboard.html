@@ -20,8 +20,8 @@
                    {{val.textContent}}
                 </p>
                 <p>
-                    <a href="#" class="subdued">Like</a>
-                    <a href="#" class="subdued">Comments</a>
+                    <a href="#" class="subdued" ng-click="likeBlog(val.BlogId)">Like</a>
+                    <a ui-sref="blogsdetailed({BlogId:val.BlogId,CategoryID:null})" class="subdued">Comments</a>
                     <a ui-sref="blogsdetailed({BlogId:val.BlogId,CategoryID:null})" class="subdued item-note">Read More...</a>
                 </p>
             </div>
