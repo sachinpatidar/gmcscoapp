@@ -4,3 +4,5 @@
 node_modules/
 platforms/
 plugins/
+www/app/controllers/blogsdashboard/dashboard.controller.js.orig
+www/app/services/httpservice.js.orig
