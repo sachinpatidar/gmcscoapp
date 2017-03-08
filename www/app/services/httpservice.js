@@ -2,7 +2,7 @@
 
    
    // var url = 'http://smartservicesapp.com/Service.svc'; 
-var url = 'http://localhost:59592/Service.svc';
+    var url = 'http://localhost:49267/Service.svc';
 
   this.get=function(urlres){
       var q = $q.defer();
