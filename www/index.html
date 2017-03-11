@@ -88,7 +88,7 @@
 
                   <div class="center" style="background-color:black">
                       <!--<p class="blue bold">Hello Sachin!</p>-->
-                      <div class="profile-pic">
+                      <div class="profile-pic" style="padding:10px 0 5px 0;">
                           <div class="round"  style="width:70px;height:70px" ><a href="#"><img  ng-src="{{profilePicture}}" alt="" draggable="false"/></a></div>
                           <p style="color:white; text-align:center;">{{profileName}}</p>
                       </div>
@@ -99,7 +99,7 @@
                 
                   <ion-scroll scroll="true" direction="y" style="height:300px">
                       <div class="list">
-                          <a class="item item-icon-left item-borderless" menu-close >
+                          <a class="item item-icon-left item-borderless" ng-click="getCategoryBlog('L',null)"  menu-close >
                               <p><i class="icon ion-ios-stopwatch-outline" style="font-size:20px"></i></p>
 
                               <h3>Current Activities</h3>
@@ -112,7 +112,7 @@
 
                           </a>
                         
-                          <a class="item item-icon-left item-borderless"  menu-close ng-repeat="value in values | orderBy:'CatOrderBy'">
+                          <a class="item item-icon-left item-borderless"  menu-close ng-repeat="value in values | orderBy:'CatOrderBy'"  ng-click="getCategoryBlog(null,{{value.CategoryID}})" >
                              <p><i class="{{value.CatClassName}}" style="font-size:20px"></i></p>
                             
                              <h3>{{value.CategoryName}}</h3>
@@ -163,6 +163,8 @@
       <script src="app/controllers/blogsdetailed/blogsdetailed.module.js"></script>
       <script src="app/controllers/addblog/addblog.controller.js"></script>
       <script src="app/controllers/addblog/addblog.module.js"></script>
+      <script src="app/controllers/forgetpassword/forgetpassword.module.js"></script>
+      <script src="app/controllers/forgetpassword/forgetpassword.controller.js"></script>
 
       <script src="app/controllers/main/main.controller.js"></script>
   </body>

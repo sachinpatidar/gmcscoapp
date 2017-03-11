@@ -11,7 +11,8 @@ angular.module('trust', ['ionic',
     'addblogs.module',
 'http.service.module',
 'main.module.controller',
-'ionic-toast'
+'ionic-toast',
+'forgetpassword.module'
 ])
 
 .run(function ($ionicPlatform) {

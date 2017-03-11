@@ -1,8 +1,8 @@
-﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', function ($q, $http, $ionicLoading) {
+﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state', function ($q, $http, $ionicLoading, $rootScope, $state) {
 
    
-   // var url = 'http://smartservicesapp.com/Service.svc'; 
-    var url = 'http://localhost:49267/Service.svc';
+  var url =  'http://localhost:49267/service.svc';
+   //   var url = 'http://smartservicesapp.com/Service.svc';  
 
   this.get=function(urlres){
       var q = $q.defer();
@@ -31,5 +31,23 @@
       return q.promise;
   }
 
+
+  this.Bloglist = function (BlogID, CategoryID) {
+      var q = $q.defer();
+    //  alert(BlogID + ',' + CategoryID);
+      $ionicLoading.show();
+      this.get('/GetBlogList/' + BlogID + '/' + CategoryID).then(function (response) {
+      
+          $rootScope.blogvalues = response.data.GetBlogListResult;
+          console.log(JSON.stringify( response.data.GetBlogListResult));
+          $ionicLoading.hide();
+          q.resolve(response);
+          $state.go("dashboard");
+      }, function (error) {  q.reject(error);
+          alert(JSON.stringify(error));
+      });  return q.promise;
+  }
+
+     
 
 }]);

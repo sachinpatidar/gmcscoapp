@@ -13,8 +13,7 @@
    
 
     $scope.convertDate = function (mydate) {
-        var p = mydate; console.log(p);
-
+        var p = mydate;
            var g = parseInt(p.replace("/Date(", "").replace(")/", ""));
         return g;
     }
