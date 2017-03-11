@@ -12,7 +12,8 @@ angular.module('trust', ['ionic',
 'http.service.module',
 'main.module.controller',
 'ionic-toast',
-'forgetpassword.module'
+'forgetpassword.module',
+'ngCordova'
 ])
 
 .run(function ($ionicPlatform) {

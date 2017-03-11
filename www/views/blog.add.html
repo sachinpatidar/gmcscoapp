@@ -23,14 +23,12 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="padding:0 10px; height:200px">
-            <ion-slide-box on-slide-changed="slideChanged($index)">
-
-                <ion-slide ng-repeat="image in images track by $index">
-                    <div class="col"><img width="100px" height="200px" class="full-image" ng-src="{{image}}" /></div>
-                </ion-slide>
-            </ion-slide-box>
-        </div>
+       
+         <a class="item-thumbanail" style="padding:10px" ng-repeat="image in images track by $index">
+      <img ng-src="{{image}}" style="width:30%;border:solid"/>
+      
+    </a>
+        
         <div class="list list-inset">
             <label class="item item-input">
                 <textarea placeholder="write blog here" rows="10" data-ng-model="data.textContent"></textarea>
